@@ -17,10 +17,24 @@ var create3Symmetry = function () {
   var getUrl = function () {
     return 'img/3-symmetry/Pizza-' + P[0] + P[1] + P[2] + '.jpg';
   };
+  var preloadImages = function () {
+    var perms = [['1', '2', '3'],
+                 ['1', '3', '2'],
+                 ['2', '3', '1'],
+                 ['2', '1', '3'],
+                 ['3', '1', '2'],
+                 ['3', '2', '1']
+                ];
+     $.each(perms, function (index, p) {
+      var i = new Image(256, 256);
+      i.src = 'img/3-symmetry/Pizza-' + p[0] + p[1] + p[2] + '.jpg';
+    });
+  };
   return {
     flip: flip,
     rotate: rotate,
-    getUrl: getUrl
+    getUrl: getUrl,
+    preloadImages: preloadImages
     // , permutation: P
   };
 };
