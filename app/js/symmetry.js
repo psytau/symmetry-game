@@ -50,7 +50,6 @@ var create3Symmetry = function () {
   var recordMove = function(moveType, moveDirection) {
     log.push([moveType, moveDirection]);
   }
-  var moveCount = 0;
   var lastMove = function() {
     var moveCode = log[log.length-1][0] + log[log.length-1][1];
     var prettyNames = {
@@ -61,7 +60,7 @@ var create3Symmetry = function () {
       'FSE': 'Flip Across SE'
     };
     return {
-      prettyPrinted: '#' + ++moveCount + ' ' +  prettyNames[moveCode],
+      prettyPrinted: '#' + log.length + ' ' +  prettyNames[moveCode],
       code: moveCode
     };
   };
