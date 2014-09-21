@@ -39,7 +39,8 @@ $(function () {
     var table = $('#log-table');
     var lastMove = S.lastMove();
     console.log(lastMove);
-    table.append('<tr><td>' + lastMove.prettyPrinted + '</td></tr>');
+    // table.append('<tr><td>' + lastMove.prettyPrinted + '</td></tr>');
+    table.prepend('<tr><td>' + lastMove.prettyPrinted + '</td></tr>');
     // table.append('<li>' + lastMove + '</li>');
   }
 

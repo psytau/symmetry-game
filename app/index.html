@@ -2,25 +2,30 @@
   <head>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   </head>
   <body>
     <div class="container">
-      <button id="rotate-left"> &lt;- rotate </button>
-      <button id="flip-north"> flip </button>
-      <button id="rotate-right"> rotate -&gt; </button>
-      <div id="pizza_container">
-        <img id="pizza_image" src="img/3-symmetry/Pizza-123.jpg" height=256 width=256 alt="pizza">
+      <div class="row">
+        <div class="col-xs-7">
+          <div class="text-center">
+            <button id="rotate-left"> &lt;- rotate </button>
+            <button id="flip-north"> flip </button>
+            <button id="rotate-right"> rotate -&gt; </button>
+          </div>
+          <div class="text-center">
+            <button id="flip-south-west"> flip </button>
+
+            <img id="pizza_image" src="img/3-symmetry/Pizza-123.jpg" height=256 width=256 alt="pizza">
+            <button id="flip-south-east"> flip </button>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <table class="table" id="log-table">
+          </table>
+        </div>
       </div>
-      <button id="flip-south-west"> flip </button>
-      <span style="width=256; height=10;"> ... </span>
-      <button id="flip-south-east"> flip </button>
-    </div>
-    <div class="log">
-      <table class="table" id="log-table">
-      </table>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
