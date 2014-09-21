@@ -7,17 +7,41 @@ $(function () {
 
   var setImg = function(s){
     $('#pizza_image').attr('src', s.getUrl());
+    logToTable(S3);
   };
 
-  $('#flip').click(function () {
-    S3.flip();
+  $('#flip-north').click(function () {
+    S3.flip('N');
     setImg(S3);
   });
 
-  $('#rotate').click(function () {
-    S3.rotate();
+  $('#flip-south-east').click(function () {
+    S3.flip('SE');
     setImg(S3);
   });
+  
+  $('#flip-south-west').click(function () {
+    S3.flip('SW');
+    setImg(S3);
+  });
+
+  $('#rotate-right').click(function () {
+    S3.rotate('R');
+    setImg(S3);
+  });
+
+  $('#rotate-left').click(function () {
+    S3.rotate('L');
+    setImg(S3);
+  });
+
+  var logToTable = function (S) {
+    var table = $('#log-table');
+    var lastMove = S.lastMove();
+    console.log(lastMove);
+    table.append('<tr><td>' + lastMove.prettyPrinted + '</td></tr>');
+    // table.append('<li>' + lastMove + '</li>');
+  }
 
   S3.preloadImages();
 });

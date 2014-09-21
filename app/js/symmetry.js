@@ -2,17 +2,33 @@
 
 var create3Symmetry = function () {
   var P = ['1', '2', '3'];
-  var flip = function () {
+  var log = [];
+  var flip = function (axis) {
     var a, b;
-    a = P[1];
-    b = P[2];
-    P[1] = b;
-    P[2]= a;
+    axis = axis || 'N';
+    if (axis === 'N') {
+      a = P[1]; b = P[2];
+      P[1] = b; P[2]= a;
+    } else if (axis === 'SE') {
+      a = P[0]; b = P[2];
+      P[0] = b; P[2] = a;
+    } else if (axis === 'SW') {
+      a = P[0]; b = P[1];
+      P[0] = b; P[1] = a;
+    }
+    if (axis === 'N' || axis === 'SE' || axis === 'SW') {
+      recordMove('F', axis);
+    }
   }
-  var rotate = function () {
-    var end;
-    end = P.pop();
-    P.unshift(end);
+  var rotate = function (direction) {
+    if(direction === 'R') {
+      P.unshift(P.pop());
+      recordMove('R', 'R');
+    }
+    else if (direction === 'L') {
+      P.push(P.shift());
+      recordMove('R', 'L');
+    }
   };
   var getUrl = function () {
     return 'img/3-symmetry/Pizza-' + P[0] + P[1] + P[2] + '.jpg';
@@ -30,11 +46,31 @@ var create3Symmetry = function () {
       i.src = 'img/3-symmetry/Pizza-' + p[0] + p[1] + p[2] + '.jpg';
     });
   };
+
+  var recordMove = function(moveType, moveDirection) {
+    log.push([moveType, moveDirection]);
+  }
+  var lastMove = function() {
+    var moveCode = log[log.length-1][0] + log[log.length-1][1];
+    var prettyNames = {
+      'RL': 'Rotate Left',
+      'RR': 'Rotate Right',
+      'FN': 'Flip Across North',
+      'FSW': 'Flip Across SW',
+      'FSE': 'Flip Across SW'
+    };
+    return {
+      prettyPrinted: prettyNames[moveCode],
+      code: moveCode
+    };
+  };
   return {
     flip: flip,
     rotate: rotate,
     getUrl: getUrl,
-    preloadImages: preloadImages
+    preloadImages: preloadImages,
+    log: log,
+    lastMove: lastMove
     // , permutation: P
   };
 };
