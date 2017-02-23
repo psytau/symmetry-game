@@ -1,6 +1,41 @@
 /*global $, create3Symmetry*/
 'use strict';
 
+function randomTransform(S3){
+  var i, command;
+  var flips = [null, 'N', 'SE', 'SW'];
+  var rotations = [null, 'R', 'L'];
+  var howManyFlips = Math.floor(Math.random() * 10);
+  var howManyRotations = Math.floor(Math.random() * 10);
+  for(i=0; i<howManyFlips; i++){
+    command = flips[Math.floor(Math.random()*flips.length)];
+    S3.flip(command);
+  }
+  for(i=0; i<howManyRotations; i++){
+    command = rotations[Math.floor(Math.random()*rotations.length)];
+    S3.rotate(command);
+  }
+}
+
+// sort see: 
+// http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array#25984542
+function fy(a,b,c,d){//array,placeholder,placeholder,placeholder
+ c=a.length;while(c)b=Math.random()*c--|0,d=a[c],a[c]=a[b],a[b]=d
+}
+function randomPizzaOrder(){
+  var pizzas = ['cheese', 'ham', 'olives'];
+  fy(pizzas);
+  return pizzas;
+}
+function pizzaText(){
+  var pizzas = randomPizzaOrder();
+  var text = "   Owl wants: "   + pizzas[0] +
+             " | Birdy wants: " + pizzas[1] +
+             " | Fish wants: "  + pizzas[2];
+  return text;
+}
+
+
 $(function () {
   var S3;
   S3 = create3Symmetry();
@@ -45,4 +80,9 @@ $(function () {
   }
 
   S3.preloadImages();
+
+  // set up random game
+  randomTransform(S3);
+  $('#pizza_image').attr('src', S3.getUrl());
+  $('.message-text').text(pizzaText());
 });

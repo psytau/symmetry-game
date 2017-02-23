@@ -1,24 +1,57 @@
 <html>
   <head>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style>
+      img.owl {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        left: 0px;
+        top: 0px;
+      }
+      img.fish {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        left: 180px;
+        top: 300px;
+      }
+      img.pajarito {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        left: 380px;
+        top: 0px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="container">
+      <div class="row">
+        <div class="well">
+          <p>
+            Pizza Party!
+          </p>
+          <p class="message-text">
+          </p>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-7">
           <div class="text-center">
-            <button id="rotate-left"> &lt;- rotate </button>
-            <button id="flip-north"> flip </button>
-            <button id="rotate-right"> rotate -&gt; </button>
+            <button id="rotate-left" class="btn"> &lt;- rotate </button>
+            <button id="flip-north" class="btn"> flip </button>
+            <button id="rotate-right" class="btn"> rotate -&gt; </button> <br> <br>
           </div>
           <div class="text-center">
-            <button id="flip-south-west"> flip </button>
+            <img class="owl" height="100" width="100" src="img/cartoons/lemmling-Cartoon-owl-African.svg">
+            <button id="flip-south-west" class="btn"> flip </button>
 
             <img id="pizza_image" src="img/3-symmetry/Pizza-123.jpg" height=256 width=256 alt="pizza">
-            <button id="flip-south-east"> flip </button>
+            <img class="pajarito" height="100" width="100" src="img/cartoons/Pajarito-Pirate.svg">
+            <button id="flip-south-east" class="btn"> flip </button>
+            <img class="fish" height="100" width="100" src="img/cartoons/Machovka-Happy-fish-asleep.svg">
           </div>
         </div>
         <div class="col-xs-3">
