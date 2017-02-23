@@ -3,26 +3,70 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <style>
+      #pizza_image {
+        margin: 100px;
+      }
+      .game {
+        margin: 0px 100px;
+        position: relative;
+      }
+      .message-text{
+        -webkit-border-radius: 40px;-moz-border-radius: 40px;border-radius: 40px;border:2px solid #DBDB00;background-color:#E3D981;
+        padding: 2px;
+      }
+      .btn {
+        height: 80px;
+        width:  80px;
+      }
+      .btn.play-again{
+        height: 45px;
+        width: 100px;
+      }
+      .top-controls {
+        position: absolute;
+        left: 100px;
+        top: 0px;
+        width: 328px;
+        z-index: 999;
+      }
+      #flip-south-west{
+        position: absolute;
+        left: 0px;
+        top: 300px;
+        z-index: 999;
+      }
+      #flip-south-east{
+        position: absolute;
+        right: 0px;
+        top: 300px;
+        z-index: 999;
+      }
+      .game-board {
+        height: 456px;
+        width: 456px;
+        background-image: url(img/checkered.svg);
+        position: relative;
+      }
       img.owl {
         position: absolute;
         height: 100px;
         width: 100px;
         left: 0px;
-        top: 0px;
+        top: 100px;
       }
       img.fish {
         position: absolute;
         height: 100px;
         width: 100px;
         left: 180px;
-        top: 300px;
+        bottom: 0px;
       }
       img.pajarito {
         position: absolute;
         height: 100px;
         width: 100px;
-        left: 380px;
-        top: 0px;
+        right: 0px;
+        top: 100px;
       }
     </style>
   </head>
@@ -30,31 +74,40 @@
     <div class="container" id="container">
       <div class="row">
         <div class="well">
-          <p>
+          <h3>
             Pizza Party!
-          </p>
-          <p class="message-text">
+          </h3>
+          <p> Serve your guests the correct kind of pizza. Rotate and flip your pizza to give your guest what they want.
+            <button class="btn btn-success play-again">Play again!</button>
+          <p>
+          <span class="message-text">
+          </span>
           </p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-7">
-          <div class="text-center">
-            <button id="rotate-left" class="btn"> &lt;- rotate </button>
-            <button id="flip-north" class="btn"> flip </button>
-            <button id="rotate-right" class="btn"> rotate -&gt; </button> <br> <br>
+      <div class="main">
+        <div class="game">
+          <div class="top-controls">
+            <button id="rotate-left" class="btn btn-primary"> &lt;- rotate </button>
+            <button id="flip-north" class="btn btn-primary"> flip </button>
+            <button id="rotate-right" class="btn btn-primary"> rotate -&gt; </button> <br> <br>
           </div>
-          <div class="text-center">
-            <img class="owl" height="100" width="100" src="img/cartoons/lemmling-Cartoon-owl-African.svg">
-            <button id="flip-south-west" class="btn"> flip </button>
+          <div class="">
 
-            <img id="pizza_image" src="img/3-symmetry/Pizza-123.jpg" height=256 width=256 alt="pizza">
-            <img class="pajarito" height="100" width="100" src="img/cartoons/Pajarito-Pirate.svg">
-            <button id="flip-south-east" class="btn"> flip </button>
-            <img class="fish" height="100" width="100" src="img/cartoons/Machovka-Happy-fish-asleep.svg">
+            <div class="game-board">
+              <img id="pizza_image" src="img/3-symmetry/Pizza-123.jpg" height=256 width=256 alt="pizza">
+              <img class="owl" height="100" width="100"
+                     src="img/cartoons/lemmling-Cartoon-owl-African.svg">
+              <img class="pajarito" height="100" width="100" 
+                     src="img/cartoons/Pajarito-Pirate.svg">
+              <img class="fish" height="100" width="100" 
+                     src="img/cartoons/Machovka-Happy-fish-asleep.svg">
+              <button id="flip-south-west" class="btn btn-primary"> flip </button>
+              <button id="flip-south-east" class="btn btn-primary"> flip </button>
+            </div>
           </div>
         </div>
-        <div class="col-xs-3">
+        <div class="history">
           <table class="table" id="log-table">
           </table>
         </div>

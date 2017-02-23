@@ -147,6 +147,7 @@
        x1="219.61"
        gradientTransform="matrix(1.7812,0,0,-1.7055,-197.189,946.43642)" />
   </defs>
+<circle cx="188" cy="188" r="188" fill="yellow"/>
   <path
      inkscape:connector-curvature="0"
      d="m 183.9878,344.17321 a 14.2496,23.02425 0 1 0 -28.4992,0 14.2496,23.02425 0 0 0 28.4992,0 z"

@@ -82,7 +82,11 @@ $(function () {
   S3.preloadImages();
 
   // set up random game
-  randomTransform(S3);
-  $('#pizza_image').attr('src', S3.getUrl());
-  $('.message-text').text(pizzaText());
+  var resetGame = function(){
+    randomTransform(S3);
+    $('#pizza_image').attr('src', S3.getUrl());
+    $('.message-text').text(pizzaText());
+  };
+  $('.play-again').on('click', resetGame);
+  resetGame();
 });
