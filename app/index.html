@@ -1,5 +1,9 @@
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <style>
@@ -7,11 +11,15 @@
         margin: 100px;
       }
       .game {
-        margin: 0px 100px;
+        padding: 0px 20px;
         position: relative;
       }
       .message-text{
-        -webkit-border-radius: 40px;-moz-border-radius: 40px;border-radius: 40px;border:2px solid #DBDB00;background-color:#E3D981;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        border-radius: 40px;
+        border:2px solid #DBDB00;
+        background-color:#E3D981;
         padding: 2px;
       }
       .btn {
@@ -72,20 +80,18 @@
   </head>
   <body>
     <div class="container" id="container">
-      <div class="row">
-        <div class="well">
+      <div class="row jumbotron">
           <h3>
             Pizza Party!
           </h3>
-          <p> Serve your guests the correct kind of pizza. Rotate and flip your pizza to give your guest what they want.
+          <p> Serve your guests the correct kind of pizza. Rotate and flip your pizza to give your guests what they want.
             <button class="btn btn-success play-again">Play again!</button>
           <p>
           <span class="message-text">
           </span>
           </p>
-        </div>
       </div>
-      <div class="main">
+      <div class="main row">
         <div class="game">
           <div class="top-controls">
             <button id="rotate-left" class="btn btn-primary"> &lt;- rotate </button>

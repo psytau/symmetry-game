@@ -78,15 +78,23 @@ $(function () {
     table.prepend('<tr><td>' + lastMove.prettyPrinted + '</td></tr>');
     // table.append('<li>' + lastMove + '</li>');
   }
+  var resetLogs = function(S){
+console.log(S);
+    S.resetMoves();
+    var tableBody = $('#log-table tbody');
+    tableBody.html('');
+  }
 
   S3.preloadImages();
 
-  // set up random game
+  // set up a random game
   var resetGame = function(){
     randomTransform(S3);
+    resetLogs(S3);
     $('#pizza_image').attr('src', S3.getUrl());
     $('.message-text').text(pizzaText());
   };
   $('.play-again').on('click', resetGame);
+
   resetGame();
 });

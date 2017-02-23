@@ -47,6 +47,10 @@ var create3Symmetry = function () {
     });
   };
 
+  var resetMoves = function(){
+    log = [];
+  };
+
   var recordMove = function(moveType, moveDirection) {
     log.push([moveType, moveDirection]);
   }
@@ -70,6 +74,7 @@ var create3Symmetry = function () {
     getUrl: getUrl,
     preloadImages: preloadImages,
     log: log,
+    resetMoves: resetMoves,
     lastMove: lastMove
     // , permutation: P
   };
